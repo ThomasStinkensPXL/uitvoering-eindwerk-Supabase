@@ -1,4 +1,4 @@
-create table "public"."Todo" (
+create table "public"."todo" (
     "uuid" uuid not null default gen_random_uuid(),
     "userUuid" uuid not null default auth.uid(),
     "title" character varying,
@@ -9,9 +9,9 @@ create table "public"."Todo" (
 );
 
 
-alter table "public"."Todo" enable row level security;
+alter table "public"."todo" enable row level security;
 
-create table "public"."User" (
+create table "public"."user" (
     "uuid" uuid not null default gen_random_uuid(),
     "email" character varying,
     "firstName" character varying,
@@ -20,96 +20,96 @@ create table "public"."User" (
 );
 
 
-alter table "public"."User" enable row level security;
+alter table "public"."user" enable row level security;
 
-CREATE UNIQUE INDEX "Todo_pkey" ON public."Todo" USING btree (uuid);
+CREATE UNIQUE INDEX "todo_pkey" ON public."todo" USING btree (uuid);
 
-CREATE UNIQUE INDEX "User_pkey" ON public."User" USING btree (uuid);
+CREATE UNIQUE INDEX "user_pkey" ON public."user" USING btree (uuid);
 
-alter table "public"."Todo" add constraint "Todo_pkey" PRIMARY KEY using index "Todo_pkey";
+alter table "public"."todo" add constraint "todo_pkey" PRIMARY KEY using index "todo_pkey";
 
-alter table "public"."User" add constraint "User_pkey" PRIMARY KEY using index "User_pkey";
+alter table "public"."user" add constraint "user_pkey" PRIMARY KEY using index "user_pkey";
 
-grant delete on table "public"."Todo" to "anon";
+grant delete on table "public"."todo" to "anon";
 
-grant insert on table "public"."Todo" to "anon";
+grant insert on table "public"."todo" to "anon";
 
-grant references on table "public"."Todo" to "anon";
+grant references on table "public"."todo" to "anon";
 
-grant select on table "public"."Todo" to "anon";
+grant select on table "public"."todo" to "anon";
 
-grant trigger on table "public"."Todo" to "anon";
+grant trigger on table "public"."todo" to "anon";
 
-grant truncate on table "public"."Todo" to "anon";
+grant truncate on table "public"."todo" to "anon";
 
-grant update on table "public"."Todo" to "anon";
+grant update on table "public"."todo" to "anon";
 
-grant delete on table "public"."Todo" to "authenticated";
+grant delete on table "public"."todo" to "authenticated";
 
-grant insert on table "public"."Todo" to "authenticated";
+grant insert on table "public"."todo" to "authenticated";
 
-grant references on table "public"."Todo" to "authenticated";
+grant references on table "public"."todo" to "authenticated";
 
-grant select on table "public"."Todo" to "authenticated";
+grant select on table "public"."todo" to "authenticated";
 
-grant trigger on table "public"."Todo" to "authenticated";
+grant trigger on table "public"."todo" to "authenticated";
 
-grant truncate on table "public"."Todo" to "authenticated";
+grant truncate on table "public"."todo" to "authenticated";
 
-grant update on table "public"."Todo" to "authenticated";
+grant update on table "public"."todo" to "authenticated";
 
-grant delete on table "public"."Todo" to "service_role";
+grant delete on table "public"."todo" to "service_role";
 
-grant insert on table "public"."Todo" to "service_role";
+grant insert on table "public"."todo" to "service_role";
 
-grant references on table "public"."Todo" to "service_role";
+grant references on table "public"."todo" to "service_role";
 
-grant select on table "public"."Todo" to "service_role";
+grant select on table "public"."todo" to "service_role";
 
-grant trigger on table "public"."Todo" to "service_role";
+grant trigger on table "public"."todo" to "service_role";
 
-grant truncate on table "public"."Todo" to "service_role";
+grant truncate on table "public"."todo" to "service_role";
 
-grant update on table "public"."Todo" to "service_role";
+grant update on table "public"."todo" to "service_role";
 
-grant delete on table "public"."User" to "anon";
+grant delete on table "public"."user" to "anon";
 
-grant insert on table "public"."User" to "anon";
+grant insert on table "public"."user" to "anon";
 
-grant references on table "public"."User" to "anon";
+grant references on table "public"."user" to "anon";
 
-grant select on table "public"."User" to "anon";
+grant select on table "public"."user" to "anon";
 
-grant trigger on table "public"."User" to "anon";
+grant trigger on table "public"."user" to "anon";
 
-grant truncate on table "public"."User" to "anon";
+grant truncate on table "public"."user" to "anon";
 
-grant update on table "public"."User" to "anon";
+grant update on table "public"."user" to "anon";
 
-grant delete on table "public"."User" to "authenticated";
+grant delete on table "public"."user" to "authenticated";
 
-grant insert on table "public"."User" to "authenticated";
+grant insert on table "public"."user" to "authenticated";
 
-grant references on table "public"."User" to "authenticated";
+grant references on table "public"."user" to "authenticated";
 
-grant select on table "public"."User" to "authenticated";
+grant select on table "public"."user" to "authenticated";
 
-grant trigger on table "public"."User" to "authenticated";
+grant trigger on table "public"."user" to "authenticated";
 
-grant truncate on table "public"."User" to "authenticated";
+grant truncate on table "public"."user" to "authenticated";
 
-grant update on table "public"."User" to "authenticated";
+grant update on table "public"."user" to "authenticated";
 
-grant delete on table "public"."User" to "service_role";
+grant delete on table "public"."user" to "service_role";
 
-grant insert on table "public"."User" to "service_role";
+grant insert on table "public"."user" to "service_role";
 
-grant references on table "public"."User" to "service_role";
+grant references on table "public"."user" to "service_role";
 
-grant select on table "public"."User" to "service_role";
+grant select on table "public"."user" to "service_role";
 
-grant trigger on table "public"."User" to "service_role";
+grant trigger on table "public"."user" to "service_role";
 
-grant truncate on table "public"."User" to "service_role";
+grant truncate on table "public"."user" to "service_role";
 
-grant update on table "public"."User" to "service_role";
+grant update on table "public"."user" to "service_role";
