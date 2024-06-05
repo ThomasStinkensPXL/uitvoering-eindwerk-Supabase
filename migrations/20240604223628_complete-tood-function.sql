@@ -18,12 +18,8 @@ begin
     where todo.uuid = todo_uuid;
 
     if found_todo is null then
-        raise exception 'No todo with uuid % found.', todo_uuid;
+        raise exception 'No todo with uuid % found for authenticated user.', todo_uuid;
     end if;
-
-    if found_todo."userUuid" != auth.uid() then
-            raise exception 'You are not the owner of the todo.';
-        end if;
 
     if found_todo."isCompleted" then
         raise exception 'The todo is already completed';
@@ -40,4 +36,4 @@ begin
     where uuid = found_todo."userUuid";
 
     end;
-$$ language plpgsql volatile security definer set search_path = '';
+$$ language plpgsql volatile security invoker set search_path = '';
