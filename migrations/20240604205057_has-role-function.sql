@@ -3,15 +3,12 @@ create or replace function public.user_has_role(
 )
 returns boolean as $$
 declare
-  user_roles_matched public.app_role;
-  user_uuid uuid;
+  user_roles_matched int;
 begin
-    user_uuid := auth.uid();
-
     select count(*)
     into user_roles_matched
     from public.user_roles
-    where user_roles.user_uuid = user_uuid
+    where user_roles.user_uuid = (auth.jwt() ->> 'id')::uuid
       and user_roles.role = requested_role;
 
     return user_roles_matched > 0;

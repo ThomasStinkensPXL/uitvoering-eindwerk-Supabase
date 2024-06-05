@@ -5,7 +5,7 @@ for select
 to authenticated
 using (
   "userUuid" = auth.uid() OR
-  user_has_role('admin')
+  user_has_role('admin'::app_role)
 );
 
 
@@ -16,11 +16,11 @@ for update
 to authenticated
 using (
   "userUuid" = auth.uid() OR
-  user_has_role('admin')
+  user_has_role('admin'::app_role)
 )
 with check (
   "userUuid" = auth.uid() OR
-  user_has_role('admin')
+  user_has_role('admin'::app_role)
 );
 
 
@@ -31,7 +31,7 @@ for delete
 to authenticated
 using (
   "userUuid" = auth.uid() OR
-  user_has_role('admin')
+  user_has_role('admin'::app_role)
 );
 
 
@@ -42,7 +42,7 @@ for select
 to authenticated
 using (
   uuid = auth.uid() OR
-  user_has_role('admin')
+  user_has_role('admin'::app_role)
 );
 
 
@@ -53,11 +53,11 @@ for update
 to authenticated
 using (
   uuid = auth.uid() OR
-  user_has_role('admin')
+  user_has_role('admin'::app_role)
 )
 with check (
   uuid = auth.uid() OR
-  user_has_role('admin')
+  user_has_role('admin'::app_role)
 );
 
 
@@ -68,5 +68,5 @@ for delete
 to authenticated
 using (
   uuid = auth.uid() OR
-  user_has_role('admin')
+  user_has_role('admin'::app_role)
 );
